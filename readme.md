@@ -29,7 +29,6 @@ To use this webhook listener, ensure you have:
 Clone this repository to your local environment or server.
 
 ```bash
-Copy Code
 git clone https://github.com/yourusername/webhook-listener.git
 cd webhook-listener
 ```
@@ -37,14 +36,12 @@ cd webhook-listener
 Make sure you have Python and the required dependencies installed. Use pip to install the packages:
 
 ```bash
-Copy Code
 pip install -r requirements.txt
 ```
 ### 3. Create a .env File for Environment Variables
 In the root directory, create a .env file to store your GitHub tokens and other environment variables:
 
 ```bash 
-Copy Code
 GITHUB_TOKEN=your-github-token
 TEST_TOKEN=your-test-repo-token
 ```
@@ -66,7 +63,6 @@ When a PR is opened or synchronized, the webhook_listener function is triggered,
 The handle_pr function clones the target repository (e.g., Django project) to a temporary directory:
 
 ```python
-Copy code
 import git
 
 repo_dir = "/tmp/django-repo"
@@ -78,7 +74,6 @@ It uses the git library to clone the repository into a temporary directory. The 
 Once the repository is cloned, the run_tests function installs pytest and coverage, runs tests, and generates a coverage report:
 
 ``` python
-Copy Code
 import subprocess
 
 subprocess.run(["pip", "install", "coverage"], check=True)
@@ -94,7 +89,6 @@ It generates both a coverage report and an HTML report (index.html in the htmlco
 The push_results function uploads the index.html coverage report to a GitHub Pages repository, and posts the report URL as a comment on the PR.
 
 ```python
-Copy Code
 import requests
 
 comment_body = f"Coverage report available at: {report_url}"
@@ -109,7 +103,6 @@ The URL to the coverage report is then posted as a comment on the pull request.
 You can run the Flask server with the following command:
 
 ```bash
-Copy code
 python app.py
 ```
 This starts the server on port 8000 by default. For production, deploy it to a server like AWS or Heroku that can handle web traffic.
