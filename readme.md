@@ -30,6 +30,7 @@ Clone this repository to your local environment or server.
 
 ```bash
 git clone https://github.com/yourusername/webhook-listener.git
+
 cd webhook-listener
 ```
 ### 2. Install Dependencies
@@ -51,6 +52,8 @@ TEST_TOKEN=your-test-repo-token
 3. Set the content type to application/json.
 4. Select Pull request events (e.g., opened, synchronized, closed).
 5. Save the webhook.
+
+---
 
 ## Workflow of the Webhook Listener
 
@@ -97,6 +100,8 @@ response = requests.post(comment_url, json={"body": comment_body}, headers=heade
 ```
 The URL to the coverage report is then posted as a comment on the pull request.
 
+---
+
 ## Running the Webhook Listener
 
 ### 1. Start Flask Server
@@ -113,6 +118,8 @@ To test the webhook:
 - Create a PR in your GitHub repository to trigger the webhook.
 - Alternatively, use a tool like ngrok to expose your local server to the internet and test the webhook manually.
 
+---
+
 ## Managing the Results
 
 ### 1. Viewing the Test Results
@@ -120,6 +127,8 @@ Once the webhook is triggered and the test results are posted, you can view them
 
 ### 2. Tracking Comments
 If you'd like to store and track the comments (so they don't disappear after a page refresh), you can store them in a file (e.g., comments.json) and update them whenever a new comment is added.
+
+---
 
 ## Common Issues and Troubleshooting
 
@@ -134,6 +143,8 @@ If you'd like to store and track the comments (so they don't disappear after a p
 - Ensure the assets folder (containing style.css) is correctly pushed to the gh-pages branch.
 - Check the HTML report to confirm the CSS is being linked correctly.
 
+---
+
 ## Best Practices
 
 ### 1.Security
@@ -144,6 +155,8 @@ If you'd like to store and track the comments (so they don't disappear after a p
 
 ### 3.Local Testing 
 - Before deploying to production, test your webhook locally using a tool like ngrok to ensure it works as expected.
+
+---
 
 ## Conclusion
 This webhook listener automates the process of running tests, generating coverage reports, and posting results to GitHub pull requests. It helps ensure that the code is properly tested before being merged into the main branch, providing continuous feedback to developers.
